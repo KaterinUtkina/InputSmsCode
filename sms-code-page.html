@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sms-code-input</title>
+    <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+<form id="check-code-form" class="form" method="get">
+    <h2>Введите код</h2>
+    <div class="form__field js-error-wrapper">
+        <input class="js-input-code"
+               id="code"
+               type="text"
+               name="code"
+               value=""
+               style="display: none"
+        >
+        <input name="code" class="js-input-code-item" />
+        <input name="code" class="js-input-code-item" />
+        <input name="code" class="js-input-code-item" />
+        <input name="code" class="js-input-code-item" />
+        <div class="form__error js-error-field"></div>
+    </div>
+    <footer class="form__footer">
+        <button class="form__button form__button--success js-submit-button"
+                type="submit">
+            Отправить
+        </button>
+        <button class="form__button form__button--close js-popup-close"
+                type="button">
+            Отменить
+        </button>
+    </footer>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="script-input-code.js"></script>
+</body>
+</html>
