@@ -4,6 +4,7 @@ const codeBackspace = 8;
 const $inputResult = $('.js-input-code');
 const $inputError = $('.js-error-field');
 const $errorWrapper = $('.js-error-wrapper');
+const testInputCode ='1234';
 
 $inputElements.each((index, element) => {
     $(element).on('paste', (event) => {
@@ -40,14 +41,6 @@ $inputElements.each((index, element) => {
             $inputElements[Math.max(0, index - 1)].focus();
         }
     });
-    $(element).on('change', () => {
-        const values = [];
-        $inputElements.each((index, item) => {
-            values.push($(item).val().toString());
-        });
-        values.join('');
-        $('.js-input-code').val(values.join(''));
-    });
     $(element).on('focus', () => {
         clearError();
     })
@@ -55,7 +48,12 @@ $inputElements.each((index, element) => {
 
 $('.js-submit-button').on('click', (event) => {
     event.preventDefault();
-    if ($inputResult.val() !== '1234') {
+    const values = [];
+    $inputElements.each((index, item) => {
+        values.push($(item).val().toString());
+    });
+    $inputResult.val(values.join(''));
+    if ($inputResult.val() !== testInputCode) {
         shwError($inputResult.val());
     } else {
         alert('Успешно');
